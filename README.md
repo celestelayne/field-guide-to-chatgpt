@@ -38,13 +38,14 @@ The repository currently contains:
 
 - A React, TypeScript, and Vite application
 - An imported ChatGPT history
+- A full-message research corpus with source provenance and conversation graphs
 - A normalization and embedding pipeline
 - Topic classification across 1,127 conversations
 - The Field Map interface for exploring conversation themes
 
 The Field Map is useful retrieval infrastructure and an earlier product experiment. The next milestone moves from **classifying conversations by topic** to **reconstructing the history of an idea**.
 
-The current normalized data contains conversation metadata, opening prompts, and truncated user text. Research Archaeology will add a separate full-message projection that preserves message-level provenance, citations, and branch relationships.
+The original normalized data contains conversation metadata, opening prompts, and truncated user text. Research Archaeology now has a separate full-message projection that preserves message-level provenance, citations, attachments, and branch relationships.
 
 ## Development
 
@@ -77,6 +78,14 @@ npm run build
 ```
 
 ## Existing data pipeline
+
+Build the private full-message corpus from the imported ChatGPT export:
+
+```bash
+npm run data:corpus
+```
+
+The command writes `scripts/.cache/research-corpus.json`. The output contains private conversation data and is excluded from Git.
 
 The existing Field Map pipeline runs in four stages:
 

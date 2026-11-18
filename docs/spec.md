@@ -136,7 +136,9 @@ Clean clones and production builds use a tracked anonymized fixture. Private Fie
 
 ### Phase 2: Create the full research corpus
 
-Create a connector output that preserves:
+**Status: Complete.**
+
+The `chatgpt-export` connector projection preserves:
 
 - Connector and source identifiers
 - Conversation and message IDs
@@ -146,7 +148,9 @@ Create a connector output that preserves:
 - URLs and citations
 - Attachments when identifiable
 
-The initial connector identifier should be `chatgpt-export`.
+Run `npm run data:corpus` to rebuild the ignored private output at `scripts/.cache/research-corpus.json`. The current export produces 1,127 conversations, 20,177 messages, and 21,304 graph nodes. The implementation retains structured message parts and raw metadata while also exposing normalized references, attachments, asset pointers, and URLs.
+
+An anonymized fixture covers connector provenance, complete messages, branch relationships, research artifacts, export shard discovery, and private output generation.
 
 ### Phase 3: Establish pilot ground truth
 

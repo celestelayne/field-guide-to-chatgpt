@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "data:corpus": "node scripts/5-research-corpus.mjs",
     "lint": "eslint .",
     "test": "vitest run",
     "preview": "vite preview"
