@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local configuration
+*.local
+
+# Editor files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Private connector inputs and research data
+# The current ChatGPT export lives here. Keep all connector source data local.
+/src/data/
+data/raw/
+data/processed/
+data/private/
+exports/
+*.zip
+
+# Private outputs derived from the research corpus
+/src/field-map/field-map-data.json
+/scripts/markers.json
+/research/private/
+/research/generated/
+
+# Extraction pipeline intermediates
+scripts/.cache/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shmgit
