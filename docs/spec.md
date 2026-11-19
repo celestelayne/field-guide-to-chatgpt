@@ -197,6 +197,8 @@ The first pilot run ranked **90s Fashion Brands** first at `0.8099`, ahead of th
 
 ### Phase 5: Produce an archaeology report
 
+**Status: Complete.**
+
 Generate structured data rather than arbitrary prose.
 
 ```ts
@@ -234,6 +236,8 @@ Each extracted item must include:
 - Whether it came from the user, an assistant, or an external source
 
 A user decision must not be inferred from an assistant recommendation alone.
+
+The first private pilot report is generated deterministically from the approved ground-truth conclusions and the completed retrieval review. It preserves both human-approved source conversations while making no uncited conclusions from the newly discovered source. The report contains one checkpoint, five findings, four user decisions, two rejected directions, three open questions, and 25 chronological research events. Every evidence object resolves to verbatim corpus text with matching authorship and provenance. Run `npm run data:archaeology-report` to rebuild it and `npm run data:validate-archaeology-report` to verify it before use by the Phase 6 interface.
 
 ### Phase 6: Build the Research Archaeology screen
 

@@ -102,6 +102,15 @@ npm run data:apply-retrieval-decisions -- /path/to/retrieval-decisions.json
 
 The retrieval pipeline indexes complete user and assistant messages, ranks matching chunks, groups them back into conversations, expands nearby context, and applies ground-truth include/exclude overrides. The private review page preserves choices locally in the browser and can export them as JSON. The final command validates and applies that export to the retrieval results. Its vectors, candidate data, review decisions, and HTML page are excluded from Git.
 
+Generate and validate the private evidence-backed archaeology report:
+
+```bash
+npm run data:archaeology-report
+npm run data:validate-archaeology-report
+```
+
+The report keeps findings, user decisions, rejected directions, open questions, the current checkpoint, research timeline, and reviewed sources as structured data. Every conclusion includes verbatim source text, authorship, date, conversation ID, message ID, and confidence. User decisions must cite at least one user-authored message. The generated report is excluded from Git.
+
 The existing Field Map pipeline runs in four stages:
 
 ```bash
