@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { validateGroundTruthManifest } from './ground-truth-manifest.mjs';
 
 const manifestFile = resolve(
-  process.argv[2] ?? 'research/private/vintage-shopping-ground-truth.json',
+  process.argv[2] ?? 'research/private/ai-native-design-engineering-ground-truth.json',
 );
 const corpusFile = resolve(
   process.argv[3] ?? 'scripts/.cache/research-corpus.json',

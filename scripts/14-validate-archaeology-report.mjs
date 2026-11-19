@@ -3,13 +3,13 @@ import { resolve } from 'node:path';
 import { validateArchaeologyReport } from './archaeology-report.mjs';
 
 const reportFile = resolve(
-  process.argv[2] ?? 'research/private/vintage-shopping-report.json',
+  process.argv[2] ?? 'research/private/ai-native-design-engineering-report.json',
 );
 const corpusFile = resolve(
   process.argv[3] ?? 'scripts/.cache/research-corpus.json',
 );
 const retrievalFile = resolve(
-  process.argv[4] ?? 'research/private/vintage-shopping-retrieval.json',
+  process.argv[4] ?? 'research/private/ai-native-design-engineering-retrieval.json',
 );
 
 const report = JSON.parse(readFileSync(reportFile, 'utf8'));

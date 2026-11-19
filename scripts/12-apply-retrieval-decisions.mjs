@@ -11,7 +11,7 @@ if (!reviewArgument) {
 
 const reviewFile = resolve(reviewArgument);
 const retrievalFile = resolve(
-  process.argv[3] ?? 'research/private/vintage-shopping-retrieval.json',
+  process.argv[3] ?? 'research/private/ai-native-design-engineering-retrieval.json',
 );
 const retrieval = JSON.parse(readFileSync(retrievalFile, 'utf8'));
 const review = JSON.parse(readFileSync(reviewFile, 'utf8'));

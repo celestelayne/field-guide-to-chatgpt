@@ -98,7 +98,7 @@ export function renderRetrievalReview(retrieval) {
   <main>
     <span class="private">Private review</span>
     <h1>Research retrieval candidates</h1>
-    <p class="intro">Review each conversation against its top verbatim semantic matches. Mark whether it belongs to the personal vintage-shopping research thread. Existing manifest decisions are labeled included or excluded; unchecked candidates still require review.</p>
+    <p class="intro">Review each conversation against its top verbatim semantic matches. Mark whether it belongs to this research thread. Existing manifest decisions are labeled included or excluded; unchecked candidates still require review.</p>
     <button id="export-decisions" type="button">Download review decisions</button>
     ${cards}
   </main>

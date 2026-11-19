@@ -22,10 +22,10 @@ const embeddingsFile = resolve(
   process.argv[4] ?? 'scripts/.cache/research-chunk-embeddings.f32',
 );
 const manifestFile = resolve(
-  process.argv[5] ?? 'research/private/vintage-shopping-ground-truth.json',
+  process.argv[5] ?? 'research/private/ai-native-design-engineering-ground-truth.json',
 );
 const outputFile = resolve(
-  process.argv[6] ?? 'research/private/vintage-shopping-retrieval.json',
+  process.argv[6] ?? 'research/private/ai-native-design-engineering-retrieval.json',
 );
 
 const corpus = JSON.parse(readFileSync(corpusFile, 'utf8'));

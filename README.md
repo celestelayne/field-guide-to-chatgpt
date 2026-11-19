@@ -22,9 +22,9 @@ The first product experience is the **Research Archaeology** screen. It reconstr
 - A chronological research timeline
 - Source evidence for every conclusion
 
-The first vertical slice uses a vintage-shopping agent as the pilot idea. The goal is to recover its history across multiple ChatGPT conversations and produce a trustworthy, source-linked checkpoint.
+The first vertical slice uses the user's evolving work on **AI-native design and engineering** as the pilot idea. The goal is to recover its progression across writing, teaching, product design, prototypes, and software architecture, then produce a trustworthy, source-linked checkpoint.
 
-See [the product specification](docs/spec.md) for requirements, acceptance criteria, and the implementation plan.
+Research Archaeology is now the application's default screen, with the Field Map retained as secondary navigation. See [the product specification](docs/spec.md) for requirements and acceptance criteria, and [the screen wireframe](docs/research-archaeology-wireframe.md) for the layout and interaction contract.
 
 ## Data connectors
 
@@ -87,7 +87,7 @@ npm run data:validate-ground-truth
 npm run data:review-ground-truth
 ```
 
-The first command writes `scripts/.cache/research-corpus.json`. The second validates the private vintage-shopping ground-truth manifest against that corpus. The third generates a private HTML review page with every conclusion beside its verbatim evidence, author, and timestamp. All private data and review files are excluded from Git.
+The first command writes `scripts/.cache/research-corpus.json`. The second validates a private ground-truth manifest against that corpus. The third generates a private HTML review page with every conclusion beside its verbatim evidence, author, and timestamp. All private data and review files are excluded from Git.
 
 Build and review the private message-level semantic retrieval index:
 

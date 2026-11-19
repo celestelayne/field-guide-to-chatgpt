@@ -30,6 +30,7 @@ const reference = {
 
 const manifest = {
   id: 'vintage-shopping',
+  status: 'draft',
   idea: { title: 'Vintage shopping', scope: 'Personal shopping research' },
   relevantMessages: [{ ...reference, reason: 'Records the decision' }],
   expected: {
@@ -62,6 +63,12 @@ const retrieval = {
 };
 
 describe('buildArchaeologyReport', () => {
+  it('labels a report as draft until its manifest and retrieval review are complete', () => {
+    const report = buildArchaeologyReport({ manifest, retrieval, corpus });
+
+    expect(report.reviewStatus).toBe('draft');
+  });
+
   it('turns a reviewed conclusion into an evidence-backed report item', () => {
     const report = buildArchaeologyReport({ manifest, retrieval, corpus });
 
@@ -97,7 +104,8 @@ describe('buildArchaeologyReport', () => {
     ]);
     expect(report.timeline).toEqual([
       {
-        text: 'Records the decision',
+        text: 'I decided to choose understated vintage bags.',
+        annotation: 'Records the decision',
         createdAt: '2026-01-01T12:00:00.000Z',
         evidence: [
           {
@@ -110,6 +118,23 @@ describe('buildArchaeologyReport', () => {
         ],
       },
     ]);
+  });
+
+  it('keeps a long pasted document out of the question-led timeline label', () => {
+    const corpusWithDocument = structuredClone(corpus);
+    corpusWithDocument.conversations[0].messages[0].text =
+      'Can you revise this section using the example below?\n\n# Feature plan\n\n```ts\nconst enabled = true;\n```';
+
+    const report = buildArchaeologyReport({
+      manifest,
+      retrieval,
+      corpus: corpusWithDocument,
+    });
+
+    expect(report.timeline[0].text).toBe(
+      'Can you revise this section using the example below?',
+    );
+    expect(report.timeline[0].evidence[0].excerpt).toContain('# Feature plan');
   });
 
   it('validates the generated report against its corpus and reviewed sources', () => {
@@ -197,7 +222,7 @@ describe('buildArchaeologyReport', () => {
     expect(validateArchaeologyReport({ report, retrieval, corpus })).toEqual({
       valid: false,
       errors: [
-        'timeline event Records the decision evidence conversation-1/message-1 is not verbatim source text',
+        'timeline event I decided to choose understated vintage bags. evidence conversation-1/message-1 is not verbatim source text',
       ],
     });
   });

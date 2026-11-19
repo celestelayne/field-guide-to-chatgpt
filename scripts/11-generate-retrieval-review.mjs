@@ -3,10 +3,10 @@ import { resolve } from 'node:path';
 import { writeRetrievalReview } from './research-retrieval-review.mjs';
 
 const retrievalFile = resolve(
-  process.argv[2] ?? 'research/private/vintage-shopping-retrieval.json',
+  process.argv[2] ?? 'research/private/ai-native-design-engineering-retrieval.json',
 );
 const outputFile = resolve(
-  process.argv[3] ?? 'research/private/vintage-shopping-retrieval-review.html',
+  process.argv[3] ?? 'research/private/ai-native-design-engineering-retrieval-review.html',
 );
 
 const retrieval = JSON.parse(readFileSync(retrievalFile, 'utf8'));

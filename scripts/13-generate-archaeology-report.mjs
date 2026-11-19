@@ -9,13 +9,13 @@ const corpusFile = resolve(
   process.argv[2] ?? 'scripts/.cache/research-corpus.json',
 );
 const manifestFile = resolve(
-  process.argv[3] ?? 'research/private/vintage-shopping-ground-truth.json',
+  process.argv[3] ?? 'research/private/ai-native-design-engineering-ground-truth.json',
 );
 const retrievalFile = resolve(
-  process.argv[4] ?? 'research/private/vintage-shopping-retrieval.json',
+  process.argv[4] ?? 'research/private/ai-native-design-engineering-retrieval.json',
 );
 const outputFile = resolve(
-  process.argv[5] ?? 'research/private/vintage-shopping-report.json',
+  process.argv[5] ?? 'research/private/ai-native-design-engineering-report.json',
 );
 
 const corpus = JSON.parse(readFileSync(corpusFile, 'utf8'));

@@ -26,7 +26,7 @@ The user therefore repeats research instead of continuing it.
 
 Use the imported ChatGPT history to reconstruct one known idea and generate a trustworthy "where I left off" checkpoint.
 
-The initial pilot should use the vintage-shopping agent. The export contains a likely anchor conversation titled **90s Fashion Brands**, plus potentially related shopping and sourcing conversations.
+The pilot uses the user's evolving practice around **AI-native design and engineering**. Four anchor conversations trace the idea from designing code-generating systems through AI-assisted product education, the Scout architecture, and a canonical AI-native React workflow.
 
 Before automating the complete workflow, establish the correct result for this one idea.
 
@@ -156,7 +156,7 @@ An anonymized fixture covers connector provenance, complete messages, branch rel
 
 **Status: Complete.**
 
-Manually identify the conversations belonging to the personal vintage-shopping research thread.
+Manually identify the conversations belonging to the AI-native design and engineering research thread.
 
 Create a reviewed manifest containing:
 
@@ -172,7 +172,7 @@ Create a reviewed manifest containing:
 
 This manifest becomes the evaluation fixture for retrieval and extraction.
 
-The confirmed pilot scope is personal vintage and resale shopping research, not an AI shopping-agent product concept. The reviewed private manifest includes one seed conversation, six documented false positives, 25 relevant messages, evidence-backed expected outcomes, and an approved checkpoint. Run `npm run data:validate-ground-truth` to verify that every citation resolves to the private corpus and that user decisions cite user-authored evidence. Run `npm run data:review-ground-truth` to generate a private HTML review page that places each conclusion beside verbatim source evidence, author, and timestamp.
+The reviewed pilot scope is the user's practice and point of view around products, interfaces, repositories, and engineering workflows in which AI participates in creation and execution. The private manifest includes six conversations, six reviewed exclusions, 39 pivotal messages, 19 approved conclusions, and 39 exact evidence excerpts. The earlier vintage-shopping pilot remains private as a completed pipeline validation, but is no longer the flagship example.
 
 ### Phase 4: Retrieve relevant research
 
@@ -193,7 +193,7 @@ For v1, the reviewed manifest can override retrieval mistakes.
 
 The local retrieval pipeline now indexes 40,172 overlapping chunks from 18,441 user and assistant messages across all 1,127 conversations. It uses the existing `Xenova/all-MiniLM-L6-v2` model, combines the idea description with a centroid of user-authored seed messages, ranks chunk matches, groups them by conversation, and expands two surrounding messages for context.
 
-The first pilot run ranked **90s Fashion Brands** first at `0.8099`, ahead of the next semantic result at `0.6336`. The completed human review retained two of 27 candidate conversations and excluded 25. Run `npm run data:review-retrieval` to generate the ignored private candidate-review page. Review choices persist locally in the browser, can be exported as private JSON, and are validated and applied with `npm run data:apply-retrieval-decisions -- /path/to/retrieval-decisions.json`.
+For the replacement pilot, semantic retrieval recovered three anchor conversations in its ranked results and preserved the fourth through the reviewed manifest. Human review retained two additional conversations and excluded six adjacent results, producing six approved sources. Review choices remain archived as ignored private JSON.
 
 ### Phase 5: Produce an archaeology report
 
@@ -241,7 +241,11 @@ The first private pilot report is generated deterministically from the approved 
 
 ### Phase 6: Build the Research Archaeology screen
 
+**Status: Complete.**
+
 Build the screen against the reviewed pilot report JSON before depending on automated extraction. This separates interface decisions from retrieval and extraction quality.
+
+The approved implementation target is documented in [`docs/research-archaeology-wireframe.md`](research-archaeology-wireframe.md). It uses an editorial research-dossier layout, keeps evidence expandable inline, and moves the Field Map to secondary navigation.
 
 The visual hierarchy should be:
 
@@ -276,7 +280,7 @@ Refine the pipeline until the checkpoint is accurate, well-supported, and useful
 1. Protect private data.
 2. Add full-message normalization.
 3. Define and validate the archaeology report schema.
-4. Build the vintage-shopping ground-truth manifest.
+4. Build the AI-native design and engineering ground-truth manifest.
 5. Create the first reviewed report.
 6. Build the Research Archaeology screen.
 7. Add semantic retrieval and structured extraction.

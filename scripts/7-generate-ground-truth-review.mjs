@@ -3,13 +3,13 @@ import { resolve } from 'node:path';
 import { writeGroundTruthReview } from './ground-truth-review.mjs';
 
 const manifestFile = resolve(
-  process.argv[2] ?? 'research/private/vintage-shopping-ground-truth.json',
+  process.argv[2] ?? 'research/private/ai-native-design-engineering-ground-truth.json',
 );
 const corpusFile = resolve(
   process.argv[3] ?? 'scripts/.cache/research-corpus.json',
 );
 const outputFile = resolve(
-  process.argv[4] ?? 'research/private/vintage-shopping-review.html',
+  process.argv[4] ?? 'research/private/ai-native-design-engineering-review.html',
 );
 
 const manifest = JSON.parse(readFileSync(manifestFile, 'utf8'));

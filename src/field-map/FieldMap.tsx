@@ -63,7 +63,7 @@ type Selection =
   | { kind: 'convo'; id: string }
   | null;
 
-export function FieldMap() {
+export function FieldMap({ onOpenArchaeology }: { onOpenArchaeology?: () => void }) {
   const [data, setData] = useState<FieldMapData | null>(null);
   const [sel, setSel] = useState<Selection>(null);
   const [hover, setHover] = useState<string | null>(null);
@@ -196,6 +196,11 @@ export function FieldMap() {
         <button type="button" className="fm-logo" onClick={reset}>
           THE FIELD MAP
         </button>
+        {onOpenArchaeology && (
+          <button type="button" className="fm-switch" onClick={onOpenArchaeology}>
+            RESEARCH ARCHAEOLOGY
+          </button>
+        )}
         <span className="fm-stat">
           {conversations.length} CHATS · {ordered.length} MARKERS · {map.total} TAGGED
         </span>

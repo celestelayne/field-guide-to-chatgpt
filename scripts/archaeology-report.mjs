@@ -33,6 +33,10 @@ export function buildArchaeologyReport({ manifest, retrieval, corpus }) {
 
   return {
     schemaVersion: 1,
+    reviewStatus:
+      manifest.status === 'reviewed' && retrieval.reviewStatus === 'complete'
+        ? 'reviewed'
+        : 'draft',
     idea: { id: manifest.id, ...manifest.idea },
     checkpoint: enrichItem(manifest.expected.checkpoint),
     findings: manifest.expected.findings.map(enrichItem),
@@ -43,7 +47,11 @@ export function buildArchaeologyReport({ manifest, retrieval, corpus }) {
       .map((reference) => {
         const evidence = enrichEvidence(reference);
         return {
-          text: reference.reason,
+          text:
+            evidence.author === 'user'
+              ? evidence.excerpt.split(/\n\s*\n/, 1)[0].trim()
+              : reference.reason,
+          annotation: reference.reason,
           createdAt: evidence.createdAt,
           evidence: [evidence],
         };
