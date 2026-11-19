@@ -154,7 +154,7 @@ An anonymized fixture covers connector provenance, complete messages, branch rel
 
 ### Phase 3: Establish pilot ground truth
 
-**Status: In progress — private draft awaiting user review.**
+**Status: Complete.**
 
 Manually identify the conversations belonging to the personal vintage-shopping research thread.
 
@@ -172,9 +172,11 @@ Create a reviewed manifest containing:
 
 This manifest becomes the evaluation fixture for retrieval and extraction.
 
-The confirmed pilot scope is personal vintage and resale shopping research, not an AI shopping-agent product concept. The current private draft includes one seed conversation, six documented false positives, 25 relevant messages, evidence-backed expected outcomes, and a proposed checkpoint. Run `npm run data:validate-ground-truth` to verify that every citation resolves to the private corpus and that user decisions cite user-authored evidence. Run `npm run data:review-ground-truth` to generate a private HTML review page that places each conclusion beside verbatim source evidence, author, and timestamp.
+The confirmed pilot scope is personal vintage and resale shopping research, not an AI shopping-agent product concept. The reviewed private manifest includes one seed conversation, six documented false positives, 25 relevant messages, evidence-backed expected outcomes, and an approved checkpoint. Run `npm run data:validate-ground-truth` to verify that every citation resolves to the private corpus and that user decisions cite user-authored evidence. Run `npm run data:review-ground-truth` to generate a private HTML review page that places each conclusion beside verbatim source evidence, author, and timestamp.
 
 ### Phase 4: Retrieve relevant research
+
+**Status: Complete.**
 
 Replace title-and-opening retrieval with message- or chunk-level semantic retrieval.
 
@@ -188,6 +190,10 @@ The retrieval flow should:
 6. Allow inclusion or exclusion before reconstruction.
 
 For v1, the reviewed manifest can override retrieval mistakes.
+
+The local retrieval pipeline now indexes 40,172 overlapping chunks from 18,441 user and assistant messages across all 1,127 conversations. It uses the existing `Xenova/all-MiniLM-L6-v2` model, combines the idea description with a centroid of user-authored seed messages, ranks chunk matches, groups them by conversation, and expands two surrounding messages for context.
+
+The first pilot run ranked **90s Fashion Brands** first at `0.8099`, ahead of the next semantic result at `0.6336`. The completed human review retained two of 27 candidate conversations and excluded 25. Run `npm run data:review-retrieval` to generate the ignored private candidate-review page. Review choices persist locally in the browser, can be exported as private JSON, and are validated and applied with `npm run data:apply-retrieval-decisions -- /path/to/retrieval-decisions.json`.
 
 ### Phase 5: Produce an archaeology report
 

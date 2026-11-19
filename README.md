@@ -89,6 +89,19 @@ npm run data:review-ground-truth
 
 The first command writes `scripts/.cache/research-corpus.json`. The second validates the private vintage-shopping ground-truth manifest against that corpus. The third generates a private HTML review page with every conclusion beside its verbatim evidence, author, and timestamp. All private data and review files are excluded from Git.
 
+Build and review the private message-level semantic retrieval index:
+
+```bash
+npm run data:chunks
+npm install --no-save @xenova/transformers
+npm run data:embed-chunks
+npm run data:retrieve
+npm run data:review-retrieval
+npm run data:apply-retrieval-decisions -- /path/to/retrieval-decisions.json
+```
+
+The retrieval pipeline indexes complete user and assistant messages, ranks matching chunks, groups them back into conversations, expands nearby context, and applies ground-truth include/exclude overrides. The private review page preserves choices locally in the browser and can export them as JSON. The final command validates and applies that export to the retrieval results. Its vectors, candidate data, review decisions, and HTML page are excluded from Git.
+
 The existing Field Map pipeline runs in four stages:
 
 ```bash
@@ -99,7 +112,7 @@ node scripts/3-markers.mjs
 node scripts/4-classify.mjs
 ```
 
-`@xenova/transformers` is a large, pipeline-only dependency and is intentionally not included in `package.json`.
+`@xenova/transformers` is a large, pipeline-only dependency shared by both embedding pipelines and is intentionally not included in `package.json`.
 
 ## Privacy
 
