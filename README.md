@@ -83,9 +83,11 @@ Build the private full-message corpus from the imported ChatGPT export:
 
 ```bash
 npm run data:corpus
+npm run data:validate-ground-truth
+npm run data:review-ground-truth
 ```
 
-The command writes `scripts/.cache/research-corpus.json`. The output contains private conversation data and is excluded from Git.
+The first command writes `scripts/.cache/research-corpus.json`. The second validates the private vintage-shopping ground-truth manifest against that corpus. The third generates a private HTML review page with every conclusion beside its verbatim evidence, author, and timestamp. All private data and review files are excluded from Git.
 
 The existing Field Map pipeline runs in four stages:
 

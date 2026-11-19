@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "data:corpus": "node scripts/5-research-corpus.mjs",
+    "data:review-ground-truth": "node scripts/7-generate-ground-truth-review.mjs",
+    "data:validate-ground-truth": "node scripts/6-validate-ground-truth.mjs",
     "lint": "eslint .",
     "test": "vitest run",
     "preview": "vite preview"

@@ -154,7 +154,9 @@ An anonymized fixture covers connector provenance, complete messages, branch rel
 
 ### Phase 3: Establish pilot ground truth
 
-Manually identify the conversations belonging to the vintage-shopping-agent idea.
+**Status: In progress — private draft awaiting user review.**
+
+Manually identify the conversations belonging to the personal vintage-shopping research thread.
 
 Create a reviewed manifest containing:
 
@@ -169,6 +171,8 @@ Create a reviewed manifest containing:
 - Expected checkpoint
 
 This manifest becomes the evaluation fixture for retrieval and extraction.
+
+The confirmed pilot scope is personal vintage and resale shopping research, not an AI shopping-agent product concept. The current private draft includes one seed conversation, six documented false positives, 25 relevant messages, evidence-backed expected outcomes, and a proposed checkpoint. Run `npm run data:validate-ground-truth` to verify that every citation resolves to the private corpus and that user decisions cite user-authored evidence. Run `npm run data:review-ground-truth` to generate a private HTML review page that places each conclusion beside verbatim source evidence, author, and timestamp.
 
 ### Phase 4: Retrieve relevant research
 
